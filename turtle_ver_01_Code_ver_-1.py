@@ -88,13 +88,29 @@ def reached_destination(turtle_obj, goal_x, goal_y, tolerance=10):
     x, y = turtle_obj.pos()
     return abs(x - goal_x) <= tolerance and abs(y - goal_y) <= tolerance
 
+# 충돌 감지 함수 추가
+def check_collision(turtle_obj, margin=10):
+    x, y = turtle_obj.pos()
+    # 장애물 좌표 영역: x [-50, 50], y [0, 100]
+    if (-50 - margin) <= x <= (50 + margin) and (0 - margin) <= y <= (100 + margin):
+        return True
+    return False
+
 # 사용
 goal_x = 250
 goal_y = 300
 
 if reached_destination(t, goal_x, goal_y):
-    print("✅ 도착 지점에 도달했습니다.")
+    print("도착 지점에 도달했습니다.")
 else:
-    print("❌ 아직 도착하지 않았습니다.")
+    print("아직 도착하지 않았습니다.")
     
 print("현재 거북이 위치:", t.pos())  # 현재 거북이의 좌표를 출력하는 함수
+
+
+# 충돌 판정
+if check_collision(t):
+    print("아아아아아아아아아아아아아아악")
+    
+else:
+    print("나이스")
