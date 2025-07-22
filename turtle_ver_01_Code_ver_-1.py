@@ -14,10 +14,23 @@ t.shapesize(1.5,1.5,1.5)
 t.pencolor("purple")
 t.pensize(4)
 
-t.goto(0,0)
+# 장애물 설치
+t.penup()
+t.goto(-50,100)
+t.pendown()
+t.setheading(0)
+t.fillcolor("red")
+t.begin_fill()
+for _ in range(2):
+    t.forward(100)
+    t.right(90)
+    t.forward(100)
+    t.right(90)
+    
+t.end_fill()
 
 # 거북이 이동경로 지정
 t.penup()
 t.goto(-350,-300)
-t.pendown()
-t.goto(350,300)
+# t.pendown()
+# t.goto(350,300)
