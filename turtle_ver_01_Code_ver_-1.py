@@ -29,8 +29,19 @@ for _ in range(2):
     
 t.end_fill()
 
-# 거북이 이동경로 지정
+# 거북이 시작점 및 자세지정 세팅
 t.penup()
 t.goto(-350,-300)
-# t.pendown()
-# t.goto(350,300)
+t.setheading(45)
+t.pendown()
+
+# 장애물 회피 기동 
+t.goto(-200,-150)
+t.setheading(135)
+t.forward(150)
+t.setheading(45)
+t.forward(500)
+t.setheading(-45)
+t.forward(150)
+t.setheading(45)
+t.forward(150)
