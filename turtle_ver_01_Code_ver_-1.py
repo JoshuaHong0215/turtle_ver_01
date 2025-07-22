@@ -77,3 +77,24 @@ custom_forward(t, 200)
 # 이동 거리 출력
 total_distance = sum(distance_list)
 print(f"총 이동 거리: {total_distance} 픽셀")
+
+# 도착 지점 판별 함수 추가
+def reached_destination(turtle_obj, goal_x, goal_y, tolerance=10):
+    """
+    turtle_obj: 거북이 객체
+    goal_x, goal_y: 도착 지점 좌표
+    tolerance: 오차 범위 (도착 판정 시 허용)
+    """
+    x, y = turtle_obj.pos()
+    return abs(x - goal_x) <= tolerance and abs(y - goal_y) <= tolerance
+
+# 사용
+goal_x = 250
+goal_y = 300
+
+if reached_destination(t, goal_x, goal_y):
+    print("✅ 도착 지점에 도달했습니다.")
+else:
+    print("❌ 아직 도착하지 않았습니다.")
+    
+print("현재 거북이 위치:", t.pos())  # 현재 거북이의 좌표를 출력하는 함수
